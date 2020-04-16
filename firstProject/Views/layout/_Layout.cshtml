@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Hello from view</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    
+    </head>
+    <body>
+        <nav class="nav container mb-5">
+            <a class="nav-link active" href="#">Active</a>
+            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Link</a>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    @Html.ActionLink("10+5", "Sum", "Calculator", new { firstNumber = 10, secondNumber = 5 }, new { @class = "navbar-item" })
+                    @Html.ActionLink("10+23", "Sum", "Calculator", new { firstNumber = 10, secondNumber = 23 }, new { @class = "navbar-item" })
+                </div>
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container mt-5">
+            @RenderBody()
+        </div>
+    </body>
+</html>
