@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Project.Controllers
+namespace Project.Views.layout
 {
-    public class MainController : Controller
+    public class ShowMessageModel : PageModel
     {
-        public IActionResult Index()
+        public void OnGet()
         {
-            return View();
         }
     }
 }

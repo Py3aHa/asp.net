@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace firstASP
+namespace Project
 {
     public class Startup
     {
@@ -20,18 +20,34 @@ namespace firstASP
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        
-        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseRouting();
-            /*
+
             app.UseRouting();
 
+            app.UseMvc(routes =>
+            {
+                /*
+                routes.MapRoute(
+                    name: "calculator",
+                    template: "Calculator/{action}/{number:int}",
+                    defaults: new { Controller = "Calculator" });
+                routes.MapRoute(
+                    name: "messages",
+                    template: "say/{*message}",
+                    defaults: new { controller = "Messages", action = "ShowMessage" });
+                */
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Main}/{action=Index}/{id?}");
+            });
+
+
+            /*
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
@@ -40,14 +56,7 @@ namespace firstASP
                 });
             });
             */
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Main}/{action=Index}/{id?}");
-            });
             app.UseStaticFiles();
         }
-        
     }
 }
